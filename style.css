@@ -8,3 +8,18 @@ td {
  tr:nth-child(2n + 1) {
     background-color: rgb(223, 227, 235);
  }
+ .calc{
+    margin: 0 auto;
+    background-color: bisque;
+    width: 200px;
+    height: 200px;
+ }
+
+ .btn {
+    width: 100px;
+    height: 30px;
+    background-color: chartreuse;
+    display: block;
+    margin: 0 auto;
+
+ }

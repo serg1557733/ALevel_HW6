@@ -49,14 +49,57 @@ td.forEach((i) => {
 у td есть свойство cellIndex, в котором лежит номер ячейки;
 у tr, аналогично есть свойство rowIndex - номер строки; */
 
-td.forEach((i) => {
-    i.onmouseover = () => {
-       i.style.backgroundColor = 'yellow'; 
-       i.parentNode.style.backgroundColor = 'yellow';
+
+
+td.forEach((item, i) => {
+    item.onmouseover = () => {
+       item.style.backgroundColor = 'yellow'; 
+       item.parentNode.style.backgroundColor = 'green';
+       console.log(item.cellIndex);
+       console.log(i);
+       
     } 
 
-    i.onmouseout = () => {
-        i.style.backgroundColor = '';
-        i.parentNode.style.backgroundColor = '';
+    item.onmouseout = () => {
+        item.style.backgroundColor = '';
+        item.parentNode.style.backgroundColor = '';
     }
 })
+
+
+/* Calc
+Сделайте ваш калькулятор из первых занятий используя DOM и элементы 
+input (в т. ч. type="number" для чисел) Каждому полю ввода присвойте 
+тот или иной id для обращения в обрабочтике события.
+Для запуска раcчета используйте, например <button id="calc"> и
+calc.onclick = function(){
+    alert((+someIdOfInput1.value) + (+someIdOfInput2.value)) 
+    //просуммировали два поля ввода с id someIdOfInput1 и someIdOfInput2 
+}
+Также можете создать поле ввода для результата и записывать результат в value этого поля.
+ */
+
+let inputCurrency = document.querySelector('#first'),
+    usd = document.querySelector('#usd'),
+    eur = document.querySelector('#eur'),
+    btn = document.querySelector('.btn')
+    out = document.querySelector('#second');
+
+    let ratios = {
+        usd: 25.6,
+        eur: 29
+    }   
+
+btn.addEventListener('click', () => {
+    if (usd.checked) {
+        console.log(inputCurrency.value * ratios.usd);
+        out.value = inputCurrency.value * ratios.usd;
+    }
+    else if (eur.checked){
+        out.value = inputCurrency.value * ratios.eur;
+    } else {
+        out.placeholder = 'Choose currency';
+    }
+})
+
+
